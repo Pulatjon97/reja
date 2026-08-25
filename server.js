@@ -14,11 +14,18 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 
 //4: Routingga bog'liq kodlar
-app.get("/hello", function(req, res) {
-    res.end(`<h1 style="background: green" >HELLO WORLD! <br> by <br>JOHN</h1>`);
+// app.get("/hello", function(req, res) {
+//     res.end(`<h1 style="background: green" >HELLO WORLD! <br> by <br>JOHN</h1>`);
+// });
+// app.get("/gift", function(req, res) {
+//     res.end(`<h1 style="background: green" >Sisz sovg'alar bo'limidasiz!</h1>`);
+// });
+app.post("/create-item", (req, res) => {
+    console.log(req.body);
+    res.json({test: "Success"});
 });
-app.get("/gift", function(req, res) {
-    res.end(`<h1 style="background: green" >Sisz sovg'alar bo'limidasiz!</h1>`);
+app.get('/', function (req, res) {
+    res.render("harid");
 });
 
 const server = http.createServer(app);
