@@ -5,6 +5,7 @@
   "residence": "S.Korea",
   "adress": "S.Korea, Seoul",
   "languages": ["Uzbek", "English", "Korean"],
+  "cv": "pulat-john",
   "language_percent": [100, 80, 40],
   "skills": ["Html", "Css", "Js", "PHP", "WordPress"],
   "skill_percent": [90, 85, 80, 75, 85],
