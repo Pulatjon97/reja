@@ -64,26 +64,25 @@
           <div class="marginer"></div>
 
           <!-- PERSONAL INFO -->
-<div class="left_info">
-  <div class="info-row">
-    <span class="info-label">Age:</span>
-    <span class="info-value"><%= user.age %></span>
-  </div>
-  <div class="info-row">
-    <span class="info-label">Residence:</span>
-    <span class="info-value"><%= user.residence %></span>
-  </div>
-  <div class="info-row">
-    <span class="info-label">Freelance:</span>
-    <span class="info-value available">Available</span>
-  </div>
-  <div class="info-row">
-    <span class="info-label">Address:</span>
-    <span class="info-value"><%= user.adress %></span>
-  </div>
-</div>
-
-<div class="marginer"></div>
+          <div class="left_info">
+            <div class="info-row">
+              <span class="info-label">Age:</span>
+              <span class="info-value"><%= user.age %></span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Residence:</span>
+              <span class="info-value"><%= user.residence %></span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Freelance:</span>
+              <span class="info-value available">Available</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Address:</span>
+              <span class="info-value"><%= user.adress %></span>
+            </div>
+          </div>
+          <div class="marginer"></div>
 
           <!-- LANGUAGES -->
           <div class="left_2">
@@ -139,46 +138,137 @@
           <div class="marginer"></div>
 
           <div class="left_5">
-  <a href="/cv/<%= user.cv %>.pdf" download class="download-btn">
-    DOWNLOAD CV
-    <svg class="download-icon" viewBox="0 0 24 24">
-      <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </a>
-</div>
+            <a href="/cv/<%= user.cv %>.pdf" download class="download-btn">
+              DOWNLOAD CV
+              <svg class="download-icon" viewBox="0 0 24 24">
+                <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
           <div class="marginer"></div>
         </div>
 
-        <div class="midd_frame">
-          <!-- decorative shapes -->
-          <div class="shape circle-1"></div>
-          <div class="shape circle-2"></div>
-          <div class="shape circle-3"></div>
-          <div class="shape circle-4"></div>
-          <div class="shape diamond-1"></div>
-          <div class="shape diamond-2"></div>
-          <div class="shape triangle-1"></div>
+        <!-- MIDDLE COLUMN: hero + services stacked -->
+        <div class="midd_column">
+          <div class="midd_frame">
+            <div class="shape circle-1"></div>
+            <div class="shape circle-2"></div>
+            <div class="shape circle-3"></div>
+            <div class="shape circle-4"></div>
+            <div class="shape diamond-1"></div>
+            <div class="shape diamond-2"></div>
+            <div class="shape triangle-1"></div>
 
-          <div class="Senior">
-            <h1>FullStack Developer <br> at Google!</h1>
+            <div class="Senior">
+              <h1>FullStack Developer <br> at Google!</h1>
+            </div>
+            <div class="paragraph">
+              <p>Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Et, Volutpat Feugiat Placerat Lobortis. Natoque Rutrum Semper Sed Suspendisse Nunc Lectus.</p>
+            </div>
+            <div class="hire">
+              <a href="#" class="hire-btn">HIRE ME <span class="arrow">→</span></a>
+            </div>
+            <div class="Author-img">
+              <img
+                src="images/Author1.jpg"
+                width="325.72px"
+                height="459.09px"
+                alt=""
+              />
+            </div>
           </div>
-          <div class="paragraph">
-            <p>Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Et, Volutpat Feugiat Placerat Lobortis. Natoque Rutrum Semper Sed Suspendisse Nunc Lectus.</p>
-          </div>
-          <div class="hire">
-            <a href="#" class="hire-btn">HIRE ME <span class="arrow">→</span></a>
-          </div>
-          <div class="Author-img">
-            <img
-              src="images/Author1.jpg"
-              width="325.72px"
-              height="459.09px"
-              alt=""
-            />
+
+          <div class="midd_frame-2">
+            <h2>My Services</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis accusamus quis eos veniam dolorem dignissimos enim. Nihil debitis esse consequuntur eligendi exercitationem, soluta, eos in ab deleniti quo impedit iure.</p>
+
+            <div class="services-grid">
+              <div class="service-card">
+                <span class="service-icon">
+                  <img src="box_images/Web.svg" alt="Web Development" />
+                </span>
+                <h4>Web Development</h4>
+                <p>Blog, E-Commerce</p>
+              </div>
+
+              <div class="service-card">
+                <span class="service-icon">
+                  <img src="box_images/UI.png" alt="UI/UX Design" />
+                </span>
+                <h4>UI/UX Design</h4>
+                <p>Mobile App, Website Design</p>
+              </div>
+
+              <div class="service-card">
+                <span class="service-icon">
+                  <img src="box_images/Mic.png" alt="Sound Design" />
+                </span>
+                <h4>Sound Design</h4>
+                <p>Voice Over, Beat Making</p>
+              </div>
+
+              <div class="service-card">
+                <span class="service-icon">
+                  <img src="box_images/Game.svg" alt="Game Design" />
+                </span>
+                <h4>Game Design</h4>
+                <p>Character Design, Props &amp; Objects</p>
+              </div>
+
+              <div class="service-card">
+                <span class="service-icon">
+                  <img src="box_images/Photographer.png" alt="Photography" />
+                </span>
+                <h4>Photography</h4>
+                <p>Portrait, Product Photography</p>
+              </div>
+
+              <div class="service-card">
+                <span class="service-icon">
+                  <svg viewBox="0 0 48 48" fill="none" stroke="#f5b921" stroke-width="1.6">
+                    <path d="M6 20v8l10 3V17z"/>
+                    <path d="M16 17l20-9v32l-20-9" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 31l3 9" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <h4>Advertising</h4>
+                <p>Campaigns, Brand Strategy</p>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="right_frame">
+          <div class="nav-box nav-box--toggle">
+            <img src="nav-icon/Contrast.png" class="icon-contrast" alt="Toggle theme" />
+          </div>
+
+          <div class="nav-list">
+            <a href="#" class="nav-box nav-box--home active" title="Home">
+              <img src="nav-icon/Home.png" class="icon-home" alt="Home" />
+              <span class="nav-tooltip">Home</span>
+            </a>
+            <a href="#" class="nav-box" title="Service">
+              <img src="nav-icon/Service.png" class="icon-nav" alt="Service" />
+              <span class="nav-tooltip">Service</span>
+            </a>
+            <a href="#" class="nav-box" title="CV">
+              <img src="nav-icon/Cv.png" class="icon-nav" alt="CV" />
+              <span class="nav-tooltip">CV</span>
+            </a>
+            <a href="#" class="nav-box" title="Portfolio">
+              <img src="nav-icon/Portfolio.png" class="icon-nav" alt="Portfolio" />
+              <span class="nav-tooltip">Portfolio</span>
+            </a>
+            <a href="#" class="nav-box" title="Blog">
+              <img src="nav-icon/Blog.png" class="icon-nav" alt="Blog" />
+              <span class="nav-tooltip">Blog</span>
+            </a>
+            <a href="#" class="nav-box" title="Contact">
+              <img src="nav-icon/Contact.png" class="icon-nav" alt="Contact" />
+              <span class="nav-tooltip">Contact</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
