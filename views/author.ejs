@@ -20,7 +20,7 @@
           <div class="left_1">
             <div class="left_1-1">
               <img
-                src="images/profile.png"
+                src="images/profile3.jpg"
                 width="156px"
                 height="142px"
                 alt=""
@@ -29,50 +29,157 @@
             <div class="left_1-2"> <%=user.name%> </div>
             <div class="left_1-3"> <%=user.profession%> </div>
             <div class="left-icons">
-                <a class="link_href" href="">
-                    <div class="icon">
-                        <img src="icon/Facebook.svg" class="icon-1">
-                    </div>
-                </a>
-                <a class="link_href" href="">
-                    <div class="icon">
-                        <img src="icon/instagram.svg" class="icon-1">
-                    </div>
-                </a>
-                <a class="link_href" href="">
-                    <div class="icon">
-                        <img src="icon/Twitter.svg" class="icon-1">
-                    </div>
-                </a>
-                <a class="link_href" href="">
-                    <div class="icon">
-                        <img src="icon/Linkeding.svg" class="icon-1">
-                    </div>
-                </a>
-                <a class="link_href" href="">
-                    <div class="icon">
-                        <img src="icon/Youtube.svg" class="icon-1">
-                    </div>
-                </a>
-                <a class="link_href" href="">
-                    <div class="icon">
-                        <img src="icon/Dribbble.svg" class="icon-1">
-                    </div>
-                </a>
+              <a class="link_href" href="">
+                <div class="icon">
+                  <img src="icon/Facebook.svg" class="icon-1" />
+                </div>
+              </a>
+              <a class="link_href" href="">
+                <div class="icon">
+                  <img src="icon/instagram.svg" class="icon-1" />
+                </div>
+              </a>
+              <a class="link_href" href="">
+                <div class="icon">
+                  <img src="icon/Twitter.svg" class="icon-1" />
+                </div>
+              </a>
+              <a class="link_href" href="">
+                <div class="icon">
+                  <img src="icon/Linkeding.svg" class="icon-1" />
+                </div>
+              </a>
+              <a class="link_href" href="">
+                <div class="icon">
+                  <img src="icon/Youtube.svg" class="icon-1" />
+                </div>
+              </a>
+              <a class="link_href" href="">
+                <div class="icon">
+                  <img src="icon/Dribbble.svg" class="icon-1" />
+                </div>
+              </a>
             </div>
           </div>
           <div class="marginer"></div>
-          <div class="left_2">2</div>
+
+          <!-- PERSONAL INFO -->
+<div class="left_info">
+  <div class="info-row">
+    <span class="info-label">Age:</span>
+    <span class="info-value"><%= user.age %></span>
+  </div>
+  <div class="info-row">
+    <span class="info-label">Residence:</span>
+    <span class="info-value"><%= user.residence %></span>
+  </div>
+  <div class="info-row">
+    <span class="info-label">Freelance:</span>
+    <span class="info-value available">Available</span>
+  </div>
+  <div class="info-row">
+    <span class="info-label">Address:</span>
+    <span class="info-value"><%= user.adress %></span>
+  </div>
+</div>
+
+<div class="marginer"></div>
+
+          <!-- LANGUAGES -->
+          <div class="left_2">
+            <h3 class="left_2-title">Languages</h3>
+            <% user.languages.forEach(function(lang, i) { %>
+              <div class="skill-item">
+                <div class="skill-label">
+                  <span><%= lang %></span>
+                  <span><%= user.language_percent ? user.language_percent[i] : "" %>%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: <%= user.language_percent ? user.language_percent[i] : 0 %>%"></div>
+                </div>
+              </div>
+            <% }) %>
+          </div>
           <div class="marginer"></div>
-          <div class="left_3">3</div>
+
+          <!-- SKILLS -->
+          <div class="left_3">
+            <h3 class="left_3-title">Skills</h3>
+            <% user.skills.forEach(function(skill, i) { %>
+              <div class="skill-item">
+                <div class="skill-label">
+                  <span><%= skill %></span>
+                  <span><%= user.skill_percent ? user.skill_percent[i] : "" %>%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: <%= user.skill_percent ? user.skill_percent[i] : 0 %>%"></div>
+                </div>
+              </div>
+            <% }) %>
+          </div>
           <div class="marginer"></div>
-          <div class="left_4">4</div>
+
+          <!-- EXTRA SKILLS -->
+          <div class="left_4">
+            <h3 class="left_4-title">Extra Skills</h3>
+            <ul class="extra-skills-list">
+              <% user.extra_skills.forEach(function(item) { %>
+                <li>
+                  <span class="icon">
+                    <svg viewBox="0 0 24 24">
+                      <rect x="3" y="3" width="12" height="12" rx="1.5"/>
+                      <rect x="9" y="9" width="12" height="12" rx="1.5"/>
+                    </svg>
+                  </span>
+                  <%= item %>
+                </li>
+              <% }) %>
+            </ul>
+          </div>
           <div class="marginer"></div>
-          <div class="left_5">5</div>
+
+          <div class="left_5">
+            <a href="/pulat-john.pdf" download class="download-btn">
+              DOWNLOAD CV
+              <svg class="download-icon" viewBox="0 0 24 24">
+                <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
           <div class="marginer"></div>
         </div>
-        <div class="midd_frame"></div>
-        <div class="right_frame"></div>
+
+        <div class="midd_frame">
+          <!-- decorative shapes -->
+          <div class="shape circle-1"></div>
+          <div class="shape circle-2"></div>
+          <div class="shape circle-3"></div>
+          <div class="shape circle-4"></div>
+          <div class="shape diamond-1"></div>
+          <div class="shape diamond-2"></div>
+          <div class="shape triangle-1"></div>
+
+          <div class="Senior">
+            <h1>FullStack Developer <br> at Google!</h1>
+          </div>
+          <div class="paragraph">
+            <p>Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Et, Volutpat Feugiat Placerat Lobortis. Natoque Rutrum Semper Sed Suspendisse Nunc Lectus.</p>
+          </div>
+          <div class="hire">
+            <a href="#" class="hire-btn">HIRE ME <span class="arrow">→</span></a>
+          </div>
+          <div class="Author-img">
+            <img
+              src="images/Author1.jpg"
+              width="325.72px"
+              height="459.09px"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <div class="right_frame">
+        </div>
       </div>
     </div>
   </body>
