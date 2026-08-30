@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "train": "nodemon train.js", 
+    "train": "nodemon train.js",
+    "task": "nodemon task.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Po'latJohn",
