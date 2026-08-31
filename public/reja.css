@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    margin: 0;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 15px;
+}
+
+.display-4 {
+    font-size: 48px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #2b2b33;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.py-1 {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-bottom: 30px;
+}
+
+.jumbotron {
+    background-color: #eaeaee;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.p-3 {
+    padding: 16px;
+}
+
+.shadow-sm {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.form-control {
+    padding: 14px 18px;
+    border-radius: 10px;
+    border: 2px solid #4285f4;
+    outline: none;
+    font-size: 16px;
+    background-color: #ffffff;
+    width: 100%;
+}
+
+.form-control:focus {
+    border-color: #4285f4;
+    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.2);
+}
+
+.mr-3 {
+    margin-right: 16px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 26px;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    color: #ffffff;
+}
+
+.btn-primary {
+    background-color: #4285f4;
+}
+
+.btn-primary:hover {
+    background-color: #3367d6;
+}
+
+.btn-danger {
+    background-color: #d9736a;
+    margin-top: 24px;
+}
+
+.btn-danger:hover {
+    background-color: #c85f56;
+}

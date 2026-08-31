@@ -13,4 +13,4 @@ function countLetter(letter, word) {
 console.log("Aniqlangan harflar soni:", countLetter("a", "Alloh yetishtirmaydigan narsani havas qildirmaydi!"));
 
 
-//Nima gaaaaaap!?
+//Nima gaaaaaap!? 
