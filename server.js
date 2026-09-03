@@ -1,52 +1,74 @@
-console.log("Web Serverni boshlash");
-const express = require("express");
-const res = require("express/lib/response");
-const app = express();
 const http = require("http");
-const fs = require("fs");
+const mongodb = require("mongodb");
 
-let user;
-fs.readFile("database/user.json", "utf8", (err, data) => {
-    if(err) {
-        console.log("ERROR", err);   
-    } else {
-        user = JSON.parse(data);
+let db;
+const connectionString =
+  "mongodb+srv://John97:maylida@cluster0.gxqiopy.mongodb.net/?appName=Cluster0";
+
+mongodb.connect(
+  connectionString,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  (err, client) => {
+    if (err) console.log("ERROR on cnnection MongoDB", err);
+    else {
+      console.log("MongoDb connection secceed!");
+
+      // CHANGED: instead of "module.exports.exports = client" (which stored the
+      // whole client under a property literally named "exports" — not usable
+      // as app.js's require("./server").db()), we now export an actual "db"
+      // function that returns the connected database. This matches what
+      // app.js expects to call.
+      db = client.db("Reja");
+      module.exports.db = function () {
+        return db;
+      };
+
+      const app = require("./app");
+      const server = http.createServer(app);
+      let PORT = 3000;
+      server.listen(PORT, function () {
+        console.log(
+          `The server is running successfully on port: ${PORT}, http://localhost:${PORT}`,
+        );
+      });
     }
-});
-fs.readFile("database/user.json", "utf8", (err, data) => {
-  if (err) {
-    console.log("ERROR", err);
-  } else {
-    user = JSON.parse(data);
-  }
-});
+  },
+);
 
-//1: Kirish kodlari
-app.use(express.static("public"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-//2: Sessionga bog'liq kodlar
-//3: Viewsga bog'liq kodlar
-app.set("views", "views");
-app.set("view engine", "ejs");
 
-//4: Routingga bog'liq kodlar
-app.post("/create-item", (req, res) => {
-  console.log(req.body);
-  res.json({ test: "success" });
-});
-app.get('/author', (req, res) => {
-    res.render("author", {user: user});
-})
-app.get("/", function (req, res) {
-  res.render("harid");
-});
 
-const server = http.createServer(app);
-let PORT = 3000;
-server.listen(PORT, function () {
-  console.log(
-    `THe server is running successfully on port: ${PORT}, http://localhost:${PORT}`,
-  );
-});
+// const http = require("http");
+// const mongodb = require("mongodb");
+
+// let db;
+// const connectionString =
+//   "mongodb+srv://John97:maylida@cluster0.gxqiopy.mongodb.net/?appName=Cluster0";
+
+// mongodb.connect(
+//   connectionString,
+//   {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   },
+//   (err, client) => {
+//     if (err) console.log("ERROR on cnnection MongoDB", err);
+//     else {
+//       console.log("MongoDb connection secceed!");
+//       module.exports.exports = client;
+
+//       const app = require("./app");
+//       const server = http.createServer(app);
+//       let PORT = 3000;
+//       server.listen(PORT, function () {
+//         console.log(
+//           `The server is running successfully on port: ${PORT}, http://localhost:${PORT}`,
+//         );
+//       });
+//     }
+//   },
+// );
+

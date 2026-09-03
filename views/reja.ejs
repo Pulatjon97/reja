@@ -29,15 +29,59 @@
         </form>
       </div>
 
+      <ul id="items-list" class="list-group mb-3"></ul>
+
       <div>
         <button
           id="clean_all"
           class="btn btn-danger"
-          style="border-radius: 20px"
+          style="border-radius: 20px; display: none"
         >
           Hamma Rejalarni O'chirish
         </button>
       </div>
     </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("create-form");
+        const input = document.getElementById("create-field");
+        const itemsList = document.getElementById("items-list");
+        const cleanAllBtn = document.getElementById("clean_all");
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const itemText = input.value.trim();
+          if (!itemText) return;
+
+          fetch("/create-item", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ item: itemText }),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              addItemToList(data.item || itemText);
+              input.value = "";
+              input.focus();
+            })
+            .catch((err) => console.log("ERROR:", err));
+        });
+
+        function addItemToList(text) {
+          const li = document.createElement("li");
+          li.className = "list-group-item";
+          li.textContent = text;
+          itemsList.appendChild(li);
+          cleanAllBtn.style.display = "inline-block";
+        }
+
+        cleanAllBtn.addEventListener("click", function () {
+          itemsList.innerHTML = "";
+          cleanAllBtn.style.display = "none";
+        });
+      });
+    </script>
   </body>
 </html>
