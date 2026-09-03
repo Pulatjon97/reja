@@ -3,8 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reja</title>
-    <link rel="stylesheet" href="/reja.css" />
+    <title>REJA</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
   </head>
   <body style="background-color: #b8bbd1">
     <div class="container">
@@ -23,159 +28,41 @@
               style="flex: 1"
             />
             <button class="btn btn-primary" style="border-radius: 20px">
-              Yangi Reja Qoshish
+              Yangi Reja Qo'shish
             </button>
           </div>
         </form>
       </div>
 
-      <ul
-        id="item-list"
-        style="list-style: none; padding: 0; margin-bottom: 3rem"
-      >
-        <% items.map(function(item) { %>
+      <ul id="item-list" class="list-group pb-5">
+        <% items.map(function(item){ %>
         <li
-          style="
-            background-color: #a8c5ca;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 16px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-          "
+          class="list-group-item list-group-item-info d-flex align-items-center justify-content-between"
         >
-          <span class="item-text"><%=item.reja%></span>
+          <span class="item-text"><%= item.reja%></span>
           <div>
             <button
               data-id="<%=item._id%>"
               class="edit-me btn btn-secondary btn-sm mr-1"
-              style="
-                border-radius: 6px;
-                padding: 6px 14px;
-                margin-right: 6px;
-                background-color: #35739c;
-                border-color: #35739c;
-                color: white;
-              "
             >
-              Ozgartirish
+              O'zgartirish
             </button>
             <button
-              data-id="<%=item._id%>"
+              data-id="<%= item._id %>"
               class="delete-me btn btn-danger btn-sm"
-              style="border-radius: 6px; padding: 6px 14px"
             >
-              Ochirish
+              O'chirish
             </button>
           </div>
         </li>
         <% }) %>
       </ul>
 
-      <div>
-        <button
-          id="clean_all"
-          class="btn btn-danger"
-          style="border-radius: 20px; display: none"
-        >
-          Hamma Rejalarni O'chirish
-        </button>
-      </div>
+      <button id="clead-all" class="btn btn-danger" style="border-radius: 20px">
+        Hamma Rejalarni o'chirish
+      </button>
     </div>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById("create-form");
-        const input = document.getElementById("create-field");
-        const itemList = document.getElementById("item-list");
-        const cleanAllBtn = document.getElementById("clean_all");
-
-        if (itemList.children.length > 0) {
-          cleanAllBtn.style.display = "inline-block";
-        }
-
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          const itemText = input.value.trim();
-          if (!itemText) return;
-
-          fetch("/create-item", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ reja: itemText }),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              addItemToList(data.item || itemText, data.id);
-              input.value = "";
-              input.focus();
-            })
-            .catch((err) => console.log("ERROR:", err));
-        });
-
-        function addItemToList(text, id) {
-          const li = document.createElement("li");
-          li.style.cssText =
-            "background-color: #a8c5ca; display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-radius: 10px; margin-bottom: 10px;";
-
-          const span = document.createElement("span");
-          span.className = "item-text";
-          span.textContent = text;
-
-          const btnGroup = document.createElement("div");
-
-          const editBtn = document.createElement("button");
-          if (id) editBtn.dataset.id = id;
-          editBtn.className = "edit-me btn btn-secondary btn-sm";
-          editBtn.style.cssText =
-            "border-radius: 6px; padding: 6px 14px; margin-right: 6px; background-color: #35739C; border-color: #35739C; color: white;";
-          editBtn.textContent = "Ozgartirish";
-
-          const deleteBtn = document.createElement("button");
-          if (id) deleteBtn.dataset.id = id;
-          deleteBtn.className = "delete-me btn btn-danger btn-sm";
-          deleteBtn.style.cssText = "border-radius: 6px; padding: 6px 14px;";
-          deleteBtn.textContent = "Ochirish";
-
-          btnGroup.appendChild(editBtn);
-          btnGroup.appendChild(deleteBtn);
-
-          li.appendChild(span);
-          li.appendChild(btnGroup);
-          itemList.appendChild(li);
-
-          cleanAllBtn.style.display = "inline-block";
-        }
-
-        itemList.addEventListener("click", function (e) {
-          if (e.target.classList.contains("delete-me")) {
-            const id = e.target.dataset.id;
-            console.log("delete id:", id);
-            e.target.closest("li").remove();
-            if (itemList.children.length === 0) {
-              cleanAllBtn.style.display = "none";
-            }
-          }
-
-          if (e.target.classList.contains("edit-me")) {
-            const id = e.target.dataset.id;
-            console.log("edit id:", id);
-            const li = e.target.closest("li");
-            const span = li.querySelector(".item-text");
-            const newText = prompt("Rejani tahrirlang:", span.textContent);
-            if (newText !== null && newText.trim() !== "") {
-              span.textContent = newText.trim();
-            }
-          }
-        });
-
-        cleanAllBtn.addEventListener("click", function () {
-          itemList.innerHTML = "";
-          cleanAllBtn.style.display = "none";
-        });
-      });
-    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/browser.js"></script>
   </body>
 </html>
