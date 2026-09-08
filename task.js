@@ -1,4 +1,5 @@
 // Task - E
+// npm run task
 
 function getReverse(str) {
   let reversed = str.split("").reverse().join("");
