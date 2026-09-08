@@ -1,6 +1,12 @@
 // Task - E
 // npm run task
 
+// function getReverse(str) {
+//   return str.split("").reverse().join("");
+// }
+
+// console.log(getReverse("hello")); // olleh
+
 function getReverse(str) {
   let reversed = str.split("").reverse().join("");
 
