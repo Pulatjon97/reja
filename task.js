@@ -18,7 +18,7 @@ function getReverse(str) {
   return reversed + "😂";
 }
 
-console.log(getReverse("Samad")); // Damas😂
+console.log(getReverse("Karam")); // Marak😂
 
 
 
