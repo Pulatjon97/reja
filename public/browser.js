@@ -48,7 +48,48 @@ document.addEventListener(`click`, function (e) {
   }
 
   //edit oper
-  if (e.target.classList.contains(`edit-me`)) {
-    alert("Siz edit buttonni bosdingiz");
+  if (e.target.classList.contains("edit-me")) {
+    let userInput = prompt(
+      "O'zgartirish kiriting",
+      e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
+    );
+    if (userInput) {
+      axios
+        .post("/edit-item", {
+          id: e.target.getAttribute("data-id"),
+          new_input: userInput,
+        })
+        .then((response) => {
+          console.log(response.data);
+          e.target.parentElement.parentElement.querySelector(".item-text").innerHTML = userInput;
+        })
+        .catch((err) => {
+          console.log("Iltimos qaytadan harakat qiling");
+        });
+    }
+  }
+});
+
+// document.getElementById("clean-all").addEventListener("click", function() {
+//   axios.post("/delete-all", {delete_all: true}).then(response => {
+//     alert(response.data.state);
+//     document.location.reload();
+//   })
+// })
+// CHANGED: the button's actual id in reja.ejs is "clead-all" (typo in the HTML),
+// not "clean-all" — getElementById("clean-all") returned null and .addEventListener
+// threw, so this block never ran. Fixed to match the real id, added a confirm()
+// and error handling.
+document.getElementById("clean-all").addEventListener("click", function () {
+  if (confirm("Hamma rejalarni o'chirmoqchimisiz?")) {
+    axios
+      .post("/delete-all", { delete_all: true })
+      .then((response) => {
+        alert(response.data.state);
+        document.location.reload();
+      })
+      .catch((err) => {
+        console.log("Iltimos qaytadan harakat qiling");
+      });
   }
 });
