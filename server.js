@@ -43,7 +43,7 @@ async function start() {
 
     const app = require("./app");
     const server = http.createServer(app);
-    let PORT = 3000;
+    let PORT = 9007;
 
     server.listen(PORT, function () {
       console.log(
