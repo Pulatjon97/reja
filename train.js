@@ -1,34 +1,61 @@
-// TASK - C
+// Task - E
+// npm run task
 
-function checkContent(str1, str2) {
-  // Uzunliklari teng bo'lmasa, harflar soni ham teng bo'lolmaydi
-  if (str1.length !== str2.length) {
-    return false;
-  }
+// function getReverse(str) {
+//   return str.split("").reverse().join("");
+// }
 
-  const count1 = {};
-  const count2 = {};
+// console.log(getReverse("hello")); // olleh
 
-  for (const ch of str1) {
-    count1[ch] = (count1[ch] || 0) + 1;
-  }
+function getReverse(str) {
+  let reversed = str.split("").reverse().join("");
 
-  for (const ch of str2) {
-    count2[ch] = (count2[ch] || 0) + 1;
-  }
+  reversed =
+    reversed.charAt(0).toUpperCase() +
+    reversed.slice(1, -1) +
+    reversed.charAt(reversed.length - 1).toLowerCase();
 
-  for (const key in count1) {
-    if (count1[key] !== count2[key]) {
-      return false;
-    }
-  }
-
-  return true;
+  return reversed + "😂";
 }
 
-// Misollar:
-console.log(checkContent("mitgroup", "gmtiprou")); // true
-console.log(checkContent("hello", "world")); // false
+console.log(getReverse("Karam")); // Marak😂
+
+
+
+
+
+
+// // TASK - C
+
+// function checkContent(str1, str2) {
+//   // Uzunliklari teng bo'lmasa, harflar soni ham teng bo'lolmaydi
+//   if (str1.length !== str2.length) {
+//     return false;
+//   }
+
+//   const count1 = {};
+//   const count2 = {};
+
+//   for (const ch of str1) {
+//     count1[ch] = (count1[ch] || 0) + 1;
+//   }
+
+//   for (const ch of str2) {
+//     count2[ch] = (count2[ch] || 0) + 1;
+//   }
+
+//   for (const key in count1) {
+//     if (count1[key] !== count2[key]) {
+//       return false;
+//     }
+//   }
+
+//   return true;
+// }
+
+// // Misollar:
+// console.log(checkContent("mitgroup", "gmtiprou")); // true
+// console.log(checkContent("hello", "world")); // false
 
 // console.log("Jack Ma maslahatlari");
 // const list = [
