@@ -1,24 +1,44 @@
-// Task - E
-// npm run task
+// G-Task
 
-// function getReverse(str) {
-//   return str.split("").reverse().join("");
-// }
-
-// console.log(getReverse("hello")); // olleh
-
-function getReverse(str) {
-  let reversed = str.split("").reverse().join("");
-
-  reversed =
-    reversed.charAt(0).toUpperCase() +
-    reversed.slice(1, -1) +
-    reversed.charAt(reversed.length - 1).toLowerCase();
-
-  return reversed + "😂";
+function getHighestIndex(arr) {
+  let maxIndex = 0;
+  
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > arr[maxIndex]) {
+      maxIndex = i;
+    }
+  }
+  
+  return maxIndex;
 }
 
-console.log(getReverse("Karam")); // Marak😂
+// Test
+console.log(getHighestIndex([20, 34, 46, 83, 112,123])); // 1
+
+
+
+
+// // Task - E
+// // npm run task
+
+// // function getReverse(str) {
+// //   return str.split("").reverse().join("");
+// // }
+
+// // console.log(getReverse("hello")); // olleh
+
+// function getReverse(str) {
+//   let reversed = str.split("").reverse().join("");
+
+//   reversed =
+//     reversed.charAt(0).toUpperCase() +
+//     reversed.slice(1, -1) +
+//     reversed.charAt(reversed.length - 1).toLowerCase();
+
+//   return reversed + "😂";
+// }
+
+// console.log(getReverse("Karam")); // Marak😂
 
 
 
