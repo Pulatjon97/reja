@@ -1,19 +1,39 @@
-// G-Task
+// F- Task
 
-function getHighestIndex(arr) {
-  let maxIndex = 0;
+function findDoublers(str) {
+  const seen = new Set();
   
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] > arr[maxIndex]) {
-      maxIndex = i;
+  for (let char of str) {
+    if (seen.has(char)) {
+      return true;
     }
+    seen.add(char);
   }
   
-  return maxIndex;
+  return false;
 }
 
 // Test
-console.log(getHighestIndex([20, 34, 46, 83, 112,123])); // 1
+console.log(findDoublers("hello")); // true ('l' ikki marta uchraydi)
+console.log(findDoublers("world")); // false (barcha harflar unikal)
+
+
+// // G-Task
+
+// function getHighestIndex(arr) {
+//   let maxIndex = 0;
+  
+//   for (let i = 1; i < arr.length; i++) {
+//     if (arr[i] > arr[maxIndex]) {
+//       maxIndex = i;
+//     }
+//   }
+  
+//   return maxIndex;
+// }
+
+// // Test
+// console.log(getHighestIndex([20, 34, 46, 83, 112,123])); // 1
 
 
 
