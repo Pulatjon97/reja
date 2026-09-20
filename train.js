@@ -1,21 +1,40 @@
-// F- Task
-
-function findDoublers(str) {
-  const seen = new Set();
+function countVowels(str) {
+  const vowels = "aeiouAEIOU";
+  let count = 0;
   
   for (let char of str) {
-    if (seen.has(char)) {
-      return true;
+    if (vowels.includes(char)) {
+      count++;
     }
-    seen.add(char);
   }
   
-  return false;
+  return count;
 }
 
 // Test
-console.log(findDoublers("hello")); // true ('l' ikki marta uchraydi)
-console.log(findDoublers("world")); // false (barcha harflar unikal)
+console.log(countVowels("Har kimki vafo qilsa, vafo topqusidur, Har kimki jafo qilsa, jafo topqusidur. Yaxshi kishi ko‘rmag‘ay yomonlig‘ hargiz, Har kimki yamon bo‘lsa, jazo topqusidur.")); // 51  unli harf
+console.log(countVowels("Aqllidan kelgan jafo nodondan kelgan vafodan yaxshidir."));  // 18 unli
+
+
+
+// // F- Task
+
+// function findDoublers(str) {
+//   const seen = new Set();
+  
+//   for (let char of str) {
+//     if (seen.has(char)) {
+//       return true;
+//     }
+//     seen.add(char);
+//   }
+  
+//   return false;
+// }
+
+// // Test
+// console.log(findDoublers("hello")); // true ('l' ikki marta uchraydi)
+// console.log(findDoublers("world")); // false (barcha harflar unikal)
 
 
 // // G-Task
