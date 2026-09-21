@@ -1,21 +1,39 @@
-//  Task K
+//  Task - L
 
-function countVowels(str) {
-  const vowels = "aeiouAEIOU";
-  let count = 0;
-  
-  for (let char of str) {
-    if (vowels.includes(char)) {
-      count++;
-    }
+function reverseSentence(str) {
+  let words = str.split(" ");
+  let result = [];
+
+  for (let word of words) {
+    result.push(word.split("").reverse().join(""));
   }
-  
-  return count;
+
+  return result.join(" ");
 }
 
-// Test
-console.log(countVowels("Har kimki vafo qilsa, vafo topqusidur, Har kimki jafo qilsa, jafo topqusidur. Yaxshi kishi ko‘rmag‘ay yomonlig‘ hargiz, Har kimki yamon bo‘lsa, jazo topqusidur.")); // 51  unli harf
-console.log(countVowels("Aqllidan kelgan jafo nodondan kelgan vafodan yaxshidir."));  // 18 unli
+console.log(reverseSentence("I stucked at some points)!"));
+// ew ekil !gnidoc
+
+
+
+// //  Task K
+
+// function countVowels(str) {
+//   const vowels = "aeiouAEIOU";
+//   let count = 0;
+  
+//   for (let char of str) {
+//     if (vowels.includes(char)) {
+//       count++;
+//     }
+//   }
+  
+//   return count;
+// }
+
+// // Test
+// console.log(countVowels("Har kimki vafo qilsa, vafo topqusidur, Har kimki jafo qilsa, jafo topqusidur. Yaxshi kishi ko‘rmag‘ay yomonlig‘ hargiz, Har kimki yamon bo‘lsa, jazo topqusidur.")); // 51  unli harf
+// console.log(countVowels("Aqllidan kelgan jafo nodondan kelgan vafodan yaxshidir."));  // 18 unli
 
 
 
