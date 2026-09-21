@@ -12,7 +12,7 @@ function reverseSentence(str) {
 }
 
 console.log(reverseSentence("I stucked at some points)!"));
-// ew ekil !gnidoc
+// I dekcuts ta emos !)stniop
 
 
 
