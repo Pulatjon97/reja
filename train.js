@@ -1,17 +1,33 @@
-//  Task - L
+//  Task - M
+// npm run train
 
-function reverseSentence(str) {
-  let words = str.split(" ");
-  let result = [];
-
-  for (let word of words) {
-    result.push(word.split("").reverse().join(""));
-  }
-
-  return result.join(" ");
+function getSquareNumbers(arr) {
+  return arr.map(number => ({
+    number: number,
+    square: number * number
+  }));
 }
 
-console.log(reverseSentence("I stucked at some points)!"));
+// Test
+console.log(getSquareNumbers([4, 8, 10]));
+
+
+
+
+// //  Task - L
+
+// function reverseSentence(str) {
+//   let words = str.split(" ");
+//   let result = [];
+
+//   for (let word of words) {
+//     result.push(word.split("").reverse().join(""));
+//   }
+
+//   return result.join(" ");
+// }
+
+// console.log(reverseSentence("I stucked at some points)!"));
 // I dekcuts ta emos !)stniop
 
 
